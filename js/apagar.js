@@ -1,5 +1,4 @@
 function apagar(id){
-    debugger;
     // Pegar os jogadores do localStorage
     const jogadores = JSON.parse(localStorage.getItem("jogadores")) || []
 
@@ -8,7 +7,7 @@ function apagar(id){
 
     // Salvar a lista de jogadores no localStorage
     localStorage.setItem("jogadores", JSON.stringify(jogador))
-    debugger;
+    
     // Remover o item da página ou recarregar a página
     window.location.reload()
 }
