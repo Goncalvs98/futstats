@@ -1,17 +1,28 @@
-document.querySelector("#botao-cadastrar").addEventListener("click", () => {
+document.querySelector("#botao-cadastrar").addEventListener("click", () => {   
+    const form = document.querySelector(".form")
+
     // Pegar os valores dos inputs
+    console.log(form)
 
     // Criar um objeto chamado jogador com esses valores
     const jogador = {
         id: new Date().getTime(),
-        nome: "Ronaldo",
-        time: "Real Madrid",
-        gols: 100,
-        assistencias: 3,
-        foto: "https://cdn.footystats.org/img/players/portugal-cristiano-ronaldo.png"
-    }
+        nome: form.nome,
+        time: form.time,
+        gols: form.gols,
+        assistencias: form.assistencias,
+        foto: form.foto
+    } 
 
-    // Salvar o objeto no localStorage usando a chave "jogadores"
+    salvar(jogador)
 
-    // Redirecionar o usuário para a página inicial
 })
+
+function salvar (jogador) {
+    const jogadores = JSON.parse( localStorage.getItem("jogadores") ) || []
+    jogadores.push(jogador)
+    localStorage.setItem("jogadores", JSON.stringify(jogadores))
+    
+    window.location.href = "index.html" 
+   
+}
