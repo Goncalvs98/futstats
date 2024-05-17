@@ -7,7 +7,7 @@ function ItemJogador(jogador) {
     jogadorElement.classList.add("data")
 
     const content = `
-        <article class="data">
+        <article class="data" id='_${jogador.id}'>
             <div>
                 <img src="${jogador.foto}"
                     alt="foto do jogador" class="avatar">
